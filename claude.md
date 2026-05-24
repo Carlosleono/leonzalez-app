@@ -84,8 +84,22 @@ Sprint 0: ✅ Completado
   - Entorno conda en ./env con Node.js 22
   - npm run dev arranca en http://localhost:5173 sin errores
 
-Sprint 1: 🔄 En curso — Autenticación (rama: sprint-1)
-Sprint 2: ⏳ Pendiente — Lista de la compra
+Sprint 1: ✅ Completado — Autenticación y hogar familiar
+  - AuthContext con onAuthStateChanged + onSnapshot del perfil (tiempo real)
+    → Expone: user, userProfile, familyId, setFamilyId, loading
+  - src/firebase/auth.js: registerUser, loginUser, logoutUser, createFamily, joinFamily
+    → createFamily genera familyId único de 6 chars (sin chars ambiguos) con crypto.getRandomValues
+    → joinFamily valida existencia y que el hogar tenga < 2 miembros
+    → getFirebaseError traduce todos los códigos de error al español
+  - ProtectedRoute: spinner → /login si no hay user → /setup si no hay familyId → children
+  - Páginas: Login, Register, Setup, Home (placeholder)
+    → Setup muestra el código en grande para copiar al crear hogar
+    → setFamilyId optimista en el context tras crear/unirse (sin esperar onSnapshot)
+  - React Router v6: /, /login, /register, /setup (con SetupGuard)
+  - index.css limpiado — solo @import "tailwindcss"
+  - Dependencia añadida: react-router-dom
+
+Sprint 2: 🔄 Pendiente — Lista de la compra
 Sprint 3: ⏳ Pendiente — Finanzas
 Sprint 4: ⏳ Pendiente — Módulo bebé
 
