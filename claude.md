@@ -104,7 +104,7 @@ Sprint 3: ⏳ Pendiente — Finanzas
 Sprint 4: ⏳ Pendiente — Módulo bebé
 
 ## Deuda técnica conocida
-(Aquí irás apuntando cosas que dejáis para después)
+Añadir opciones de editar el perfil
 
 ## Cómo desplegar
 firebase deploy   ← despliega hosting
