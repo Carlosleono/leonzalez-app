@@ -1,0 +1,10 @@
+# Entorno conda del proyecto — Node.js fijado en v22
+#
+# Crear:   conda env create --prefix ./env -f environment.yml
+# Activar: conda activate ./env
+# Usar:    npm install && npm run dev
+
+channels:
+  - conda-forge
+dependencies:
+  - nodejs=22
