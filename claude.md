@@ -99,7 +99,25 @@ Sprint 1: ✅ Completado — Autenticación y hogar familiar
   - index.css limpiado — solo @import "tailwindcss"
   - Dependencia añadida: react-router-dom
 
-Sprint 2: 🔄 Pendiente — Lista de la compra
+Sprint 2: ✅ Completado — Lista de la compra
+  - src/firebase/shopping.js: addShoppingItem, deleteShoppingItem, startShoppingTrip,
+    addItemDuringTrip, toggleTripItem, completeShoppingTrip, uploadTicketPhoto,
+    subscribeToShoppingItems, subscribeToActiveTrip, subscribeToTripItems,
+    getShoppingHistory, getTripItems
+    → startShoppingTrip usa uuid para pre-generar tripId y escribe todo en un batch atómico
+    → completeShoppingTrip borra en batch solo los items checked con originalItemId
+  - src/hooks/useShopping.js: items, activeTrip (undefined=cargando, null=no hay, obj=activo),
+    loading, addItem, deleteItem, startTrip, addItemToTrip, toggleItem, finishTrip
+  - src/components/AddItemModal.jsx: drawer desde abajo, nombre + comentario opcional
+  - src/components/StartTripModal.jsx: chips de tienda + input libre
+  - src/pages/Shopping.jsx: lista pendientes + FAB + "Iniciar compra" + banner trip activo
+  - src/pages/ShoppingActive.jsx: checkboxes + progreso + añadir durante + ticket + finalizar
+  - src/pages/ShoppingHistory.jsx: acordeón + lazy load de items + foto ticket + cargar más
+  - src/firebase/config.js: añade getStorage → export storage
+  - Dependencias añadidas: uuid (pre-generar IDs para batch atómico)
+  - Firestore: requiere índice compuesto en shoppingTrips (status ASC, completedAt DESC)
+  - Firebase Storage: requiere activación en consola + reglas de acceso
+
 Sprint 3: ⏳ Pendiente — Finanzas
 Sprint 4: ⏳ Pendiente — Módulo bebé
 
